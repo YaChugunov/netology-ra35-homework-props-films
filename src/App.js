@@ -16,7 +16,7 @@ class ErrorBoundary extends React.Component {
 
   componentDidCatch(error, errorInfo) {
     // Можно также сохранить информацию об ошибке в соответствующую службу журнала ошибок
-    logErrorToMyService(error, errorInfo);
+    // logErrorToMyService(error, errorInfo);
   }
 
   render() {
@@ -36,6 +36,7 @@ function Stars(props) {
   let htmlString = '';
 
   if (props.count < 1 || props.count > 5 || typeof props.count != 'number') {
+    throw new Error('I crashed!');
     return null;
   }
   for (let i = 1; i <= countStar; i++) {
@@ -60,7 +61,9 @@ export default function App() {
     <div>
       <ul class="card-body-stars u-clearfix">
         <li>
-          <Stars count={1} />
+          <ErrorBoundary>
+            <Stars count={'a'} />
+          </ErrorBoundary>
         </li>
       </ul>
     </div>
