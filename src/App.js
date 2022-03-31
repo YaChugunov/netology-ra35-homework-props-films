@@ -35,7 +35,7 @@ export default function App() {
     <div>
       <ul class="card-body-stars u-clearfix">
         <li>
-          <Stars count={1} />
+          <Stars count={2} />
         </li>
       </ul>
     </div>
