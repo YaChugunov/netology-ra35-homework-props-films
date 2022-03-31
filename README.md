@@ -2,7 +2,7 @@
 ===
 
 Необходимо реализовать компонент отображающий рейтинг фильма в виде звезд:
-![Список фильмов](./assets/preview.png)
+https://github.com/netology-code/ra16-homeworks/tree/master/props/films/assets/preview.png)
 
 
 ## Описание компонента
