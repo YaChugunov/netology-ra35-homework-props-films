@@ -3,48 +3,22 @@ import PropTypes from 'prop-types';
 
 import './style.css';
 
-class ErrorBoundary extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { hasError: false };
-  }
-
-  static getDerivedStateFromError(error) {
-    // Обновить состояние с тем, чтобы следующий рендер показал запасной UI.
-    return { hasError: true };
-  }
-
-  componentDidCatch(error, errorInfo) {
-    // Можно также сохранить информацию об ошибке в соответствующую службу журнала ошибок
-    // logErrorToMyService(error, errorInfo);
-  }
-
-  render() {
-    if (this.state.hasError) {
-      // Можно отрендерить запасной UI произвольного вида
-      return <h1>Что-то пошло не так.</h1>;
-    }
-
-    return this.props.children;
-  }
-}
-
 function Stars(props) {
-  const htmlStar = props.icon;
-  const countStar = props.count;
+  const icon = props.icon;
+  const count = props.count;
 
-  let htmlString = '';
+  let htmlIcon = '';
 
   if (props.count < 1 || props.count > 5 || typeof props.count != 'number') {
-    throw new Error('I crashed!');
+    // throw new Error('I crashed!');
     return null;
   }
-  for (let i = 1; i <= countStar; i++) {
-    htmlString = htmlString + htmlStar;
+  for (let i = 1; i <= count; i++) {
+    htmlIcon = htmlIcon + icon;
   }
   // console.log(out);
 
-  return <div dangerouslySetInnerHTML={{ __html: htmlString }}></div>;
+  return <div dangerouslySetInnerHTML={{ __html: htmlIcon }}></div>;
 }
 
 Stars.defaultProps = {
@@ -61,9 +35,7 @@ export default function App() {
     <div>
       <ul class="card-body-stars u-clearfix">
         <li>
-          <ErrorBoundary>
-            <Stars count={'a'} />
-          </ErrorBoundary>
+          <Stars count={1} />
         </li>
       </ul>
     </div>
