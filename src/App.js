@@ -16,7 +16,7 @@ function Stars(props) {
   for (let i = 1; i <= count; i++) {
     htmlIcon = htmlIcon + icon;
   }
-  // console.log(out);
+  // console.log(htmlIcon);
 
   return <div dangerouslySetInnerHTML={{ __html: htmlIcon }}></div>;
 }
@@ -35,7 +35,7 @@ export default function App() {
     <div>
       <ul class="card-body-stars u-clearfix">
         <li>
-          <Stars count={2} />
+          <Stars count={3} />
         </li>
       </ul>
     </div>
